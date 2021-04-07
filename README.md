@@ -43,13 +43,37 @@ Describe: TicTacToeGame
 
   Test: TicTacToeGame has a players array
   Code: const myTicTacToeGame = new TicTacToeGame()
-  Expect: myTicTacToeGame.Players = []
+  Expect: myTicTacToeGame.Players is an array
 
   Test: TicTacToeGame players array has a length of 2
   Code: const myTicTacToeGame = new TicTacToeGame()
   Expect: myTicTacToeGame.Player.length === 2
 
-  Test:
+  Test: player1 is on team X
+  Code: const myPlayer1 = new Player("X")
+  Expect: myPlayer1.team === "X"
+
+  Test: player2 is on team O
+  Code: const myPlayer2 = new Player("O")
+  Expect: myPlayer2.team === "O"
+
+  Test: A player should have a name 
+  Code: const namedPlayer = new Player("X","thomas")
+  Expect: namedPlayer.name === "thomas"
+
+  Test: GameBoard should have 9 squares
+  Code: const myGameBoard = new GameBoard()
+  Expect: myGameBoard.squares.length === 9 
+
+  Test: 
+  Code:
+  Expect:
+
+  Test: 
+  Code:
+  Expect:
+
+  Test: 
   Code:
   Expect:
 
@@ -59,13 +83,4 @@ Describe: TicTacToeGame
 <br />
 
 > You can't steal what is freely given. Enjoy!
-
-<br />
-<br />
-<br />
-<br />
-<p align="center">
-  <small>Made with ❤️ in Portland, Oregon. </small>
-</p>
-
 
