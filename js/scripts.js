@@ -14,7 +14,9 @@ function GameBoard() {
 
 GameBoard.prototype.Mark = function(square, player) {
   const index = Number(square) - 1
-  this.squares[index] = player
+  if (this.squares[index] === "") {
+    this.squares[index] = player
+  }
 }
 
 // const myGame = new TicTacToeGame("Thomas", "Tom")
@@ -34,7 +36,7 @@ GameBoard.prototype.Mark = function(square, player) {
 
 
 // squares = ["x",undefined,"o",undefined...]
-// squares = ["x","","","o","","x","","","","",""]
+// squares = ["","","","","","","","",""]
 
 
 // parseint("5") => 5

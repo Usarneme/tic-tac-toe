@@ -70,6 +70,20 @@ Describe: TicTacToeGame
   myGameBoard.Mark("1", "X") 
   Expect: myGameBoard.squares[0] === "X"
 
+  Test: GameBoard cant Mark defined index
+  Code: const myGameBoard = new GameBoard()
+   myGameBoard.Mark("1", "X")
+   myGameBoard.Mark("1", "O")
+  Expect: myGameBoard.squares[0] === "X"
+
+  Test: 
+  Code:
+  Expect:
+
+  Test: 
+  Code:
+  Expect:
+
   Test: 
   Code:
   Expect:
