@@ -1,7 +1,8 @@
 function TicTacToeGame(name1, name2) {
-  this.GameBoard = new GameBoard()
-  this.Players = [new Player("X", name1), new Player("O", name2)]
+  this.players = [new Player("X", name1), new Player("O", name2)]
+  this.gameBoard = new GameBoard()
 }
+
 
 function Player(team, name) {
   this.team = team
@@ -9,6 +10,7 @@ function Player(team, name) {
 }
 
 function GameBoard() {
+  this.currentTurn = 1
   this.squares = new Array(9).fill("")
 }
 
@@ -16,8 +18,10 @@ GameBoard.prototype.Mark = function(square, player) {
   const index = Number(square) - 1
   if (this.squares[index] === "") {
     this.squares[index] = player
+    this.currentTurn += 1
   }
 }
+
 
 // const myGame = new TicTacToeGame("Thomas", "Tom")
 // myGame.GameBoard exists

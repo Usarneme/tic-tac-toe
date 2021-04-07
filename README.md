@@ -76,13 +76,14 @@ Describe: TicTacToeGame
    myGameBoard.Mark("1", "O")
   Expect: myGameBoard.squares[0] === "X"
 
-  Test: 
-  Code:
-  Expect:
+  Test: TicTacToeGame starts at turn 1
+  Code: const myTicTacToeGame = new TicTacToeGame()
+  Expect: myTicTacToeGame.currentTurn === 1
 
-  Test: 
-  Code:
-  Expect:
+  Test: when gameboard is marked currentTurn increases by 1
+  Code: const myGameBoard = new GameBoard()
+        mygameBoard.Mark("1","X") 
+  Expect: myGameBoard.currentTurn === 2
 
   Test: 
   Code:
