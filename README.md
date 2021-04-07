@@ -1,5 +1,5 @@
 # PROJECT NAME
-## By Usarneme/Tom
+## By Tom & Thomas
 
 ---
 
@@ -34,10 +34,20 @@ This project is a web application that DESCRIPTION
 ---
 ### Test Suite/Specification
 
-> See also [the Jest Test File](TESTSURL) for Jest Test Suite which includes 14 passing tests. View Test Results from Project Directory by Running `yarn run test` or if you prefer npm `npm run test`
-
 ```
-Describe: TESTS
+Describe: TicTacToeGame
+
+  Test: TicTacToeGame has a game board object
+  Code: const TicTacToeGame = new TicTacToeGame()
+  Expect: TicTacToeGame.hasOwnProperty(GameBoard)
+
+  Test: 
+  Code:
+  Expect:
+
+  Test:
+  Code:
+  Expect:
 
 ```
 ---
@@ -53,3 +63,5 @@ Describe: TESTS
 <p align="center">
   <small>Made with ❤️ in Portland, Oregon. </small>
 </p>
+
+
