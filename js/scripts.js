@@ -12,6 +12,10 @@ function GameBoard() {
   this.squares = new Array(9).fill("")
 }
 
+GameBoard.prototype.Mark = function(square, player) {
+  const index = Number(square) - 1
+  this.squares[index] = player
+}
 
 // const myGame = new TicTacToeGame("Thomas", "Tom")
 // myGame.GameBoard exists
@@ -20,9 +24,10 @@ function GameBoard() {
 // const myPlayer2 = new Player()
 // const Players = [new Player(), new Player()]
 
-// 1 2 3
-// 4 5 6
-// 7 8 9
+// Square/Location:
+// "1" "2" "3"
+// "4" "5" "6"
+// "7" "8" "9"
 
 // const nineSizedArray = new Array(9)
 // const nineSizedArray2 = [undefined,undefined,undefined,undefined,undefined,undefined,undefined,undefined,undefined]
@@ -30,3 +35,11 @@ function GameBoard() {
 
 // squares = ["x",undefined,"o",undefined...]
 // squares = ["x","","","o","","x","","","","",""]
+
+
+// parseint("5") => 5
+// parseInt("5F") => 5
+// parseInt("543djfdjdfjsdfjdsfgj") => 543
+
+// Number("5") => 5
+// Number("123abc") = undefined

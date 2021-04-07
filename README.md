@@ -65,9 +65,10 @@ Describe: TicTacToeGame
   Code: const myGameBoard = new GameBoard()
   Expect: myGameBoard.squares.length === 9 
 
-  Test: 
-  Code:
-  Expect:
+  Test: GameBoard Marks X or O into empty square  
+  Code: const myGameBoard = new GameBoard()
+  myGameBoard.Mark("1", "X") 
+  Expect: myGameBoard.squares[0] === "X"
 
   Test: 
   Code:
