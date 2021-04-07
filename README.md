@@ -38,12 +38,16 @@ This project is a web application that DESCRIPTION
 Describe: TicTacToeGame
 
   Test: TicTacToeGame has a game board object
-  Code: const TicTacToeGame = new TicTacToeGame()
-  Expect: TicTacToeGame.hasOwnProperty(GameBoard)
+  Code: const myTicTacToeGame = new TicTacToeGame()
+  Expect: myTicTacToeGame.hasOwnProperty(GameBoard)
 
-  Test: 
-  Code:
-  Expect:
+  Test: TicTacToeGame has a players array
+  Code: const myTicTacToeGame = new TicTacToeGame()
+  Expect: myTicTacToeGame.Players = []
+
+  Test: TicTacToeGame players array has a length of 2
+  Code: const myTicTacToeGame = new TicTacToeGame()
+  Expect: myTicTacToeGame.Player.length === 2
 
   Test:
   Code:
@@ -51,7 +55,7 @@ Describe: TicTacToeGame
 
 ```
 ---
-### License is GPLv3 and I make no claim to copyright. 
+### License is GPLv3 and I make no claim to copyright.
 <br />
 
 > You can't steal what is freely given. Enjoy!
