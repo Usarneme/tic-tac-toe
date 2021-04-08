@@ -2,6 +2,7 @@
   height: 200px;
 }
 
+.current-player,
 .board-container {
   display: none;
 }

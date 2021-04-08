@@ -52,17 +52,14 @@ GameBoard.prototype.Mark = function(square, playerSymbol) {
   }
 }
 
-// const myTTTG = new TicTacToeGame("Tom","Thomas")
-// console.log(myTTTG.gameBoard)
-// myTTTG.takeTurn("1", "X")
-// myTTTG.takeTurn("4", "O")
-// myTTTG.takeTurn("2", "X")
-// myTTTG.takeTurn("5", "O")
-// myTTTG.takeTurn("3", "X")
-// myTTTG.takeTurn("6", "O")
-// myTTTG.takeTurn("7", "X")
-// console.log(myTTTG)
+// UI Logic
 let myGame
+
+function updateUi(currentPlayer) {
+  // take the game state/gameboard
+  $(".player-team").text(currentPlayer)
+  // and update the ui in the browser
+}
 
 $(document).ready(function() {
 
@@ -73,15 +70,14 @@ $(document).ready(function() {
     myGame = new TicTacToeGame(playerOne,playerTwo)
     $("form").hide()
     $(".board-container").show()
-    console.log(myGame)
+    $(".current-player").show()
+    // console.log(myGame)
   })
-
-  // $(board).click(function())... listen on the board, call back function gets passed the WHOLE BOARD
 
   $(".board-container").on("click", ".col", function() {
-    console.log(this.id)
+    myGame.takeTurn(this.id)
+    console.log(myGame)
+    updateUi(myGame.currentPlayer)
   })
 
-
 })
-
