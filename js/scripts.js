@@ -15,7 +15,6 @@ TicTacToeGame.prototype.checkForWin = function(playerSymbol, gameBoard) {
   if (gameBoard.squares[2] === playerSymbol && gameBoard.squares[5] === playerSymbol && gameBoard.squares[8] === playerSymbol) isWin = true
   if (gameBoard.squares[0] === playerSymbol && gameBoard.squares[4] === playerSymbol && gameBoard.squares[8] === playerSymbol) isWin = true
   if (gameBoard.squares[2] === playerSymbol && gameBoard.squares[4] === playerSymbol && gameBoard.squares[6] === playerSymbol) isWin = true
-  console.log('checking for win? ',isWin)
   return isWin
 }
 

@@ -1,27 +1,22 @@
-# PROJECT NAME
+# TicTacToe Game!
 ## By Tom & Thomas
 
 ---
 
 ### Project Description
 
-This project is a web application that DESCRIPTION
+This project is a web application that you can use to play a game of Tic Tac Toe!
 ---
 ### Tech Stack
 1. HTML5+CSS3
 2. JavaScript/ES6+
 3. jQuery
 4. Bootstrap
----
-
-### Project Build Available At:
-
-[BUILD URL](BUILD URL)
 
 ---
 ### Installation Instructions
-1. Clone this repo: `git clone https://github.com/Usarneme/REPO URL`
-2. Enter new directory `cd REPO DIR`
+1. Clone this repo
+2. Enter new directory
 3. Begin a web server in order to interact with and view index.html. For example:
   * If you have python, you can use: `python2 -m SimpleHTTPServer 8080` in the project root directory
   * Or you can use [VScode LiveServer](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
@@ -86,23 +81,13 @@ Describe: TicTacToeGame
   Expect: myGameBoard.currentTurn === 2
 
   Test: TicTacToeGame can check if there is a win condition
-  Code: const myGameBoard = new GameBoard()
-    mygameBoard.Mark("1","X")
-    mygameBoard.Mark("2","X")
-    mygameBoard.Mark("3","X")
-  Expect: myGameBoard.winner === true
+  Code: const myTTTG = new TicTacToeGame()
+    myTTG.gameBoard.Mark("1","X")
+    myTTG.gameBoard.Mark("2","X")
+    myTTG.gameBoard.Mark("3","X")
+    const hasWon = myTTG.checkForWin()
+  Expect: hasWon === true
 
-  Test: 
-  Code:
-  Expect:
-
-  Test: 
-  Code:
-  Expect:
-
-  Test: 
-  Code:
-  Expect:
 
 ```
 ---
