@@ -85,6 +85,17 @@ Describe: TicTacToeGame
         mygameBoard.Mark("1","X") 
   Expect: myGameBoard.currentTurn === 2
 
+  Test: TicTacToeGame can check if there is a win condition
+  Code: const myGameBoard = new GameBoard()
+    mygameBoard.Mark("1","X")
+    mygameBoard.Mark("2","X")
+    mygameBoard.Mark("3","X")
+  Expect: myGameBoard.winner === true
+
+  Test: 
+  Code:
+  Expect:
+
   Test: 
   Code:
   Expect:
