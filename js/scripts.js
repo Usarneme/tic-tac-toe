@@ -48,7 +48,13 @@ GameBoard.prototype.Mark = function(square, playerSymbol) {
 let myGame
 
 function updateBoard(playerSymbol, boxId) {
-  $(`#${boxId}`).text(playerSymbol).attr("disabled", true)
+  $(`#${boxId}`).removeClass("btn-outline-success")
+  if (playerSymbol === "X") {
+    $(`#${boxId}`).addClass("btn-info")
+  } else {
+    $(`#${boxId}`).addClass("btn-danger")
+  }
+  $(`#${boxId}`).html(`<div class="symbol">${playerSymbol}</div>`).attr("disabled", true)
 }
 
 $(document).ready(function() {
@@ -98,10 +104,12 @@ $(document).ready(function() {
 
   $(".new-game-button").click(function() {
     // reset all the board elements
-    $(".box").text("").attr("disabled", false)
+    $(".box").text("").attr("disabled", false).removeClass("btn-info").removeClass("btn-danger").addClass("btn-outline-success")
+    $(".game-over").hide()
     // and start a new game
     const playerOne = $("#playerOne").val()
     const playerTwo = $("#playerTwo").val()
     myGame = new TicTacToeGame(playerOne,playerTwo)
+    $(".player-team").show()
   })
 })
