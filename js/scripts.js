@@ -5,16 +5,12 @@ function TicTacToeGame(name1, name2) {
   this.currentPlayer = this.players[0].team
 }
 
-TicTacToeGame.prototype.takeTurn = function(square, player) {
-  // mark the board
-  this.gameBoard.Mark(square, player)
-  // check for a win
-  const isWinner = this.checkForWin(player, this.gameBoard)
-  if (isWinner) this.gameOver(player, true)
-  // increment the turn counter
+TicTacToeGame.prototype.takeTurn = function(square) {
+  this.gameBoard.Mark(square, this.currentPlayer)
+  const isWinner = this.checkForWin(this.currentPlayer, this.gameBoard)
+  if (isWinner) return this.gameOver(this.currentPlayer, true)
   this.currentTurn += 1
-  if (this.currentTurn >= 9) this.gameOver(player, false)
-  // change whose turn it is
+  if (this.currentTurn >= 9) return this.gameOver(this.currentPlayer, false)
   if (this.currentPlayer === this.players[0].team) {
     this.currentPlayer = this.players[1].team
   } else {
@@ -22,20 +18,21 @@ TicTacToeGame.prototype.takeTurn = function(square, player) {
   }
 }
 
-TicTacToeGame.prototype.checkForWin = function(player, gameBoard) {
+TicTacToeGame.prototype.checkForWin = function(playerSymbol, gameBoard) {
   let isWin = false
-  if (gameBoard[0] === player.team && gameBoard[1] === player.team && gameBoard[2] === player.team) isWin = true
-  if (gameBoard[3] === player.team && gameBoard[4] === player.team && gameBoard[5] === player.team) isWin = true
-  if (gameBoard[6] === player.team && gameBoard[7] === player.team && gameBoard[8] === player.team) isWin = true
-  if (gameBoard[0] === player.team && gameBoard[3] === player.team && gameBoard[6] === player.team) isWin = true
-  if (gameBoard[1] === player.team && gameBoard[4] === player.team && gameBoard[7] === player.team) isWin = true
-  if (gameBoard[2] === player.team && gameBoard[5] === player.team && gameBoard[8] === player.team) isWin = true
-  if (gameBoard[0] === player.team && gameBoard[4] === player.team && gameBoard[8] === player.team) isWin = true
-  if (gameBoard[2] === player.team && gameBoard[4] === player.team && gameBoard[6] === player.team) isWin = true
+  if (gameBoard.squares[0] === playerSymbol && gameBoard.squares[1] === playerSymbol && gameBoard.squares[2] === playerSymbol) isWin = true
+  if (gameBoard.squares[3] === playerSymbol && gameBoard.squares[4] === playerSymbol && gameBoard.squares[5] === playerSymbol) isWin = true
+  if (gameBoard.squares[6] === playerSymbol && gameBoard.squares[7] === playerSymbol && gameBoard.squares[8] === playerSymbol) isWin = true
+  if (gameBoard.squares[0] === playerSymbol && gameBoard.squares[3] === playerSymbol && gameBoard.squares[6] === playerSymbol) isWin = true
+  if (gameBoard.squares[1] === playerSymbol && gameBoard.squares[4] === playerSymbol && gameBoard.squares[7] === playerSymbol) isWin = true
+  if (gameBoard.squares[2] === playerSymbol && gameBoard.squares[5] === playerSymbol && gameBoard.squares[8] === playerSymbol) isWin = true
+  if (gameBoard.squares[0] === playerSymbol && gameBoard.squares[4] === playerSymbol && gameBoard.squares[8] === playerSymbol) isWin = true
+  if (gameBoard.squares[2] === playerSymbol && gameBoard.squares[4] === playerSymbol && gameBoard.squares[6] === playerSymbol) isWin = true
   return isWin
 }
 
 TicTacToeGame.prototype.gameOver = function(player, isWinner) {
+  console.log("WINNER WINNER or TIE")
   return player
 }
 
@@ -48,12 +45,20 @@ function GameBoard() {
   this.squares = new Array(9).fill("")
 }
 
-GameBoard.prototype.Mark = function(square, player) {
+GameBoard.prototype.Mark = function(square, playerSymbol) {
   const index = Number(square) - 1
   if (this.squares[index] === "") {
-    this.squares[index] = player
+    this.squares[index] = playerSymbol
   }
 }
 
-
-
+// const myTTTG = new TicTacToeGame("Tom","Thomas")
+// console.log(myTTTG.gameBoard)
+// myTTTG.takeTurn("1", "X")
+// myTTTG.takeTurn("4", "O")
+// myTTTG.takeTurn("2", "X")
+// myTTTG.takeTurn("5", "O")
+// myTTTG.takeTurn("3", "X")
+// myTTTG.takeTurn("6", "O")
+// myTTTG.takeTurn("7", "X")
+// console.log(myTTTG)
