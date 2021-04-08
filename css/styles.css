@@ -2,6 +2,7 @@
   height: 200px;
 }
 
+.game-over,
 .current-player,
 .board-container {
   display: none;
@@ -9,4 +10,9 @@
 
 h1 {
   text-align: center;
+}
+
+.header {
+  min-height: 120px;
+  background: lightcyan;
 }

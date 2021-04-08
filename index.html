@@ -4,15 +4,15 @@
   <link
     rel="stylesheet"
     href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
     crossorigin="anonymous">
   <link href="css/styles.css" rel="stylesheet" type="text/css">
-  <title>TITLE</title>
+  <title>TicTacToe</title>
 </head>
 <body>
   <section class="main container-fluid">
-    <div class=jumbotron>
-      <h1>Tic Tac Toe</h1>
+    <div class="container-fluid text-center align-middle align-items-center text-uppercase header">
+      <h1 class="align-middle">Tic Tac Toe</h1>
     </div>
 
     <div class="container">
@@ -30,44 +30,33 @@
     </div>
 
     <div class="container card current-player text-center text-uppercase">
-      <h3>Current Player: <span class="player-team">X</span></h3>
+      <h3>
+        <span class="player-team">Current Player: X</span>
+        <div class="game-over">
+          <span class="game-over-text">Game Over!</span>
+          <button class="btn btn-block btn-outline-info new-game-button">New Game</button>
+        </div>
+      </h3>
     </div>
 
     <div class="container board-container">
       <div class="row">
-        <div class="col btn btn-outline-success justify-content-center align-items-center box" id="1">
-          
-        </div>
-        <div class="col btn btn-outline-success justify-content-center align-items-center box" id="2">
-          
-        </div>
-        <div class="col btn btn-outline-success justify-content-center align-items-center box" id="3">
-          
-        </div>
+        <div class="col btn btn-outline-success justify-content-center align-items-center box" id="1"></div>
+        <div class="col btn btn-outline-success justify-content-center align-items-center box" id="2"></div>
+        <div class="col btn btn-outline-success justify-content-center align-items-center box" id="3"></div>
       </div>
       <div class="row">
-        <div class="col btn btn-outline-success justify-content-center align-items-center box" id="4">
-          
-        </div>
-        <div class="col btn btn-outline-success justify-content-center align-items-center box" id="5">
-          
-        </div>
-        <div class="col btn btn-outline-success justify-content-center align-items-center box" id="6">
-          
-        </div>
+        <div class="col btn btn-outline-success justify-content-center align-items-center box" id="4"></div>
+        <div class="col btn btn-outline-success justify-content-center align-items-center box" id="5"></div>
+        <div class="col btn btn-outline-success justify-content-center align-items-center box" id="6"></div>
       </div>
       <div class="row">
-        <div class="col btn btn-outline-success justify-content-center align-items-center box" id="7">
-          
-        </div>
-        <div class="col btn btn-outline-success justify-content-center align-items-center box" id="8">
-          
-        </div>
-        <div class="col btn btn-outline-success justify-content-center align-items-center box" id="9">
-          
-        </div>
+        <div class="col btn btn-outline-success justify-content-center align-items-center box" id="7"></div>
+        <div class="col btn btn-outline-success justify-content-center align-items-center box" id="8"></div>
+        <div class="col btn btn-outline-success justify-content-center align-items-center box" id="9"></div>
       </div>
     </div>
+
   </section>
   <script
     src="https://code.jquery.com/jquery-3.6.0.js"

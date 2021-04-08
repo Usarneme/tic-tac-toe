@@ -47,8 +47,7 @@ GameBoard.prototype.Mark = function(square, playerSymbol) {
 // UI Logic
 let myGame
 
-function updateUi(playerSymbol, boxId) {
-  $(".player-team").text(playerSymbol)
+function updateBoard(playerSymbol, boxId) {
   $(`#${boxId}`).text(playerSymbol).attr("disabled", true)
 }
 
@@ -66,26 +65,43 @@ $(document).ready(function() {
 
   $(".board-container").on("click", ".col", function() {
     if ($(this).attr("disabled") === undefined) {
-      // take a turn
-      console.log("before turn",myGame.gameBoard.squares)
-      // mark the board
+      // console.log("before turn",myGame.gameBoard.squares)
       myGame.gameBoard.Mark(this.id, myGame.currentPlayerSymbol)
-      // update the displayed board
-      updateUi(myGame.currentPlayerSymbol, this.id)
-      // look for a win or game over condition
+      updateBoard(myGame.currentPlayerSymbol, this.id)
       const isWinner = myGame.checkForWin(myGame.currentPlayerSymbol, myGame.gameBoard)
-      console.log("after check for win",myGame.gameBoard.squares)
+
       if (isWinner) {
-        // we have a winner
-        console.log("WINNER")
+        $(".board-container").children().children().attr("disabled", true)
+        $(".player-team").hide()
+        // get the current player/winners name
+        let winner
+        if (myGame.currentPlayerSymbol === "X") {
+          winner = myGame.players[0].name
+        } else {
+          winner = myGame.players[1].name
+        }
+        $(".game-over-text").text(`Congrats, ${winner}! You win!`)
+        $(".game-over").show()
       } else {
         if (myGame.currentTurn >= 9) {
           // then it's a tie
-          console.log("TIE")
+          $(".player-team").hide()
+          $(".game-over-text").text(`It's the Cat's game!`)
+          $(".game-over").show()
         }
         // continue the game
         myGame.endTurn()
+        $(".player-team").text("Current Player: " + myGame.currentPlayerSymbol)
       }
     }
+  })
+
+  $(".new-game-button").click(function() {
+    // reset all the board elements
+    $(".box").text("").attr("disabled", false)
+    // and start a new game
+    const playerOne = $("#playerOne").val()
+    const playerTwo = $("#playerTwo").val()
+    myGame = new TicTacToeGame(playerOne,playerTwo)
   })
 })
