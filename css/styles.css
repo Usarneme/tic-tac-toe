@@ -1,0 +1,11 @@
+.box {
+  height: 200px;
+}
+
+.board-container {
+  display: none;
+}
+
+h1 {
+  text-align: center;
+}

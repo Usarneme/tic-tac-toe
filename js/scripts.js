@@ -62,3 +62,26 @@ GameBoard.prototype.Mark = function(square, playerSymbol) {
 // myTTTG.takeTurn("6", "O")
 // myTTTG.takeTurn("7", "X")
 // console.log(myTTTG)
+let myGame
+
+$(document).ready(function() {
+
+  $("form").submit(function(event) {
+    event.preventDefault()
+    const playerOne = $("#playerOne").val()
+    const playerTwo = $("#playerTwo").val()
+    myGame = new TicTacToeGame(playerOne,playerTwo)
+    $("form").hide()
+    $(".board-container").show()
+    console.log(myGame)
+  })
+
+  // $(board).click(function())... listen on the board, call back function gets passed the WHOLE BOARD
+
+  $(".board-container").on("click", ".col", function() {
+    console.log(this.id)
+  })
+
+
+})
+

@@ -10,10 +10,58 @@
   <title>TITLE</title>
 </head>
 <body>
-  <section class="main">
+  <section class="main container-fluid">
     <div class=jumbotron>
-      <div>
-        <h1>Tic Tac Toe</h1>
+      <h1>Tic Tac Toe</h1>
+    </div>
+
+    <div class="container">
+      <form>
+        <div class="form-group">
+          <label for="playerOne">Player 1</label>
+          <input type="text" class="form-control" id="playerOne" required>
+        </div>
+        <div class="form-group">
+          <label for="playerTwo">Player 2</label>
+          <input type="text" class="form-control" id="playerTwo" required>
+        </div>
+        <button type="submit" class="btn btn-lg btn-block btn-primary-outline">Submit</button>
+      </form>
+    </div>
+
+    <div class="container board-container">
+      <div class="row">
+        <div class="col border box" id="1">
+          
+        </div>
+        <div class="col border box" id="2">
+          
+        </div>
+        <div class="col border box" id="3">
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="col border box" id="4">
+          
+        </div>
+        <div class="col border box" id="5">
+          
+        </div>
+        <div class="col border box" id="6">
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="col border box" id="7">
+          
+        </div>
+        <div class="col border box" id="8">
+          
+        </div>
+        <div class="col border box" id="9">
+          
+        </div>
       </div>
     </div>
   </section>
