@@ -2,19 +2,19 @@ function TicTacToeGame(name1, name2) {
   this.players = [new Player("X", name1), new Player("O", name2)]
   this.gameBoard = new GameBoard()
   this.currentTurn = 1
-  this.currentPlayer = this.players[0].team
+  this.currentPlayerSymbol = this.players[0].team
 }
 
 TicTacToeGame.prototype.takeTurn = function(square) {
-  this.gameBoard.Mark(square, this.currentPlayer)
-  const isWinner = this.checkForWin(this.currentPlayer, this.gameBoard)
-  if (isWinner) return this.gameOver(this.currentPlayer, true)
+  this.gameBoard.Mark(square, this.currentPlayerSymbol)
+  // const isWinner = this.checkForWin(this.currentPlayerSymbol, this.gameBoard)
+  // if (isWinner) return this.gameOver(this.currentPlayerSymbol, true)
+  // if (this.currentTurn >= 9) return this.gameOver(this.currentPlayerSymbol, false)
   this.currentTurn += 1
-  if (this.currentTurn >= 9) return this.gameOver(this.currentPlayer, false)
-  if (this.currentPlayer === this.players[0].team) {
-    this.currentPlayer = this.players[1].team
+  if (this.currentPlayerSymbol === this.players[0].team) {
+    this.currentPlayerSymbol = this.players[1].team
   } else {
-    this.currentPlayer = this.players[0].team
+    this.currentPlayerSymbol = this.players[0].team
   }
 }
 
@@ -52,13 +52,31 @@ GameBoard.prototype.Mark = function(square, playerSymbol) {
   }
 }
 
+// after turn 7 it says winner with this gameBoard state:
+// 0: "X"
+// 1: "O"
+// 2: "X"
+// 3: "O"
+// 4: "X"
+// 5: "O"
+// 6: "X"
+// 7: ""
+// 8: ""
+
+
 // UI Logic
 let myGame
 
-function updateUi(currentPlayer) {
-  // take the game state/gameboard
-  $(".player-team").text(currentPlayer)
-  // and update the ui in the browser
+function updateUi(playerSymbol, boxId) {
+  // if the box has never been clicked on, disabled === undefined. which means allow it to be clicked on
+  $(".player-team").text(playerSymbol) // currentTurn player
+  // changeTurn already happened, so playerSymbol is wrong at this point
+  if (playerSymbol === "X") {
+    playerSymbol = "O"
+  } else {
+    playerSymbol = "X"
+  }
+  $(`#${boxId}`).text(playerSymbol).attr("disabled", true) // last turn player
 }
 
 $(document).ready(function() {
@@ -75,9 +93,11 @@ $(document).ready(function() {
   })
 
   $(".board-container").on("click", ".col", function() {
-    myGame.takeTurn(this.id)
-    console.log(myGame)
-    updateUi(myGame.currentPlayer)
+    if ($(this).attr("disabled") === undefined) {
+      myGame.takeTurn(this.id)
+      console.log(myGame)
+      updateUi(myGame.currentPlayerSymbol, this.id)
+    }
   })
 
 })
